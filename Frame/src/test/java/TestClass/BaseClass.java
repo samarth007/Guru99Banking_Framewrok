@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -48,6 +49,17 @@ public class BaseClass {
 		FileUtils.copyFile(src, new File(path));
 		
 	}
+	
+	public boolean isAlertPresent() {
+		try {
+		driver.switchTo().alert();
+		return true;
+	}
+		catch(NoAlertPresentException e) {
+			return false;
+		}
+	}
+	
 	
 	public String getmail() {
 		return RandomStringUtils.randomAlphanumeric(7);
