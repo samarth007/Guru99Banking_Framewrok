@@ -1,6 +1,8 @@
 
 package TestClass;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +14,7 @@ public class AddCustomer_Test extends BaseClass {
 
 	
 	@Test
-	public void Adding() {
+	public void Adding() throws IOException, InterruptedException {
 		
 		LoginPage lp = new LoginPage(driver);
 		lp.setuser().sendKeys(user);
@@ -20,12 +22,12 @@ public class AddCustomer_Test extends BaseClass {
 		lp.clicklogin().click();
 		
 		HomePage hp = new HomePage(driver);
-		hp.addcust().click();
+		hp.newcust();
 		
 		AddCustomer_page add = new AddCustomer_page(driver);
 		add.name("samarth");
 		add.gen();
-		add.Dob("23", "04", "1996");
+		add.Dob("24", "04", "1995");
 		add.Addrs("Bengaluru");
 		add.cit("BENGALURU");
 		add.Sttate("KAR");
@@ -33,7 +35,9 @@ public class AddCustomer_Test extends BaseClass {
 		add.pin("560021");
 		add.pwd("Samastha@07");
 		add.maill(getmail()+"@gmail.com");
+		add.sbmit();
 		
+		Thread.sleep(3000);
 		boolean succ = driver.getPageSource().contains("Customer Registered Successfully!!!");
 		
 		if(succ==true) {
@@ -42,6 +46,7 @@ public class AddCustomer_Test extends BaseClass {
 			log.info("test passed");
 		}
 		else {
+			screenshot(driver, "Adding");
 			log.error("test failed");
 			Assert.assertTrue(false);
 		}

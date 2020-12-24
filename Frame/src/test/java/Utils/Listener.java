@@ -49,7 +49,7 @@ public class Listener implements ITestListener {
 		test= extent.createTest(result.getMethod().getMethodName());
 		test.log(Status.FAIL, MarkupHelper.createLabel(result.getName(), ExtentColor.RED));
 		
-		String screenshotpath=System.getProperty("user.dir")+"/Screenshot/"+result.getName()+".png";
+		String screenshotpath=System.getProperty("user.dir")+"//Screenshot//"+result.getName()+".png";
 		
 		File f =new File(screenshotpath);
 		

@@ -15,8 +15,8 @@ public class HomePage {
 	@FindBy(xpath="//a[contains(text(),'Log out')]")
 	WebElement logout;
 	
-	@FindBy(xpath="//a[contains(text(),'New Customer')]")
-	WebElement newcust;
+	@FindBy(xpath="//a[contains(text(),'New Account')]")
+	WebElement newAcc;
 
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
@@ -31,7 +31,7 @@ public class HomePage {
 		logout.click();
 	}
 	
-	public WebElement addcust() {
-		return newcust;
+	public WebElement addAcc() {
+		return newAcc;
 	}
 }

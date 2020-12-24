@@ -38,4 +38,14 @@ public class ReadConfig {
 	public String driverpath() {
 		return p.getProperty("chromepath");
 	}
+	
+	public String cust() {
+		return p.getProperty("custid");
+	}
+	
+	public String getAccountType() {
+		
+	return	p.getProperty("AccountType");
+}
+	
 }

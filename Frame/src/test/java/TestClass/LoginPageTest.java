@@ -21,7 +21,9 @@ public class LoginPageTest extends BaseClass {
 		log.info("entered password");
 		lp.clicklogin().click();
 		
-		if(driver.getTitle().equals("Guru99 Bank Manager HomePage")) {
+		boolean valid= driver.getPageSource().contains(user);
+		
+		if(valid==true) {
 			
 			log.info("test success");
 			Assert.assertTrue(true);

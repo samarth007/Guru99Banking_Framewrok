@@ -37,15 +37,15 @@ public class BaseClass {
 		driver.get(baseurl);
 	}
 	
-	@AfterClass
+	/*@AfterClass
 	public void terminate() {
 		driver.close();
-	}
+	}*/
 	
 	public void screenshot(WebDriver driver, String name) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File src= ts.getScreenshotAs(OutputType.FILE);
-		String path= System.getProperty("user.dir")+"/Screenshot/"+name+".png";
+		String path= System.getProperty("user.dir")+"\\Screenshot\\"+name+".png";
 		FileUtils.copyFile(src, new File(path));
 		
 	}
